@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Novo Usuário</title>
+            </f:facet>
+        </h:head>
+ 
+        <h:body>
+            <h:form id="formPrincipal">
+                <h:link outcome="/index" value="Voltar" />
+                <p/>
+                <p:outputLabel id="campoNome" value="Nome: "/>
+                <p:inputText value="#{novoUsuario.usuario.nome}" 
+                             required="true" requiredMessage="Nome obrigatório"
+                             maxlength="50" />
+                <p/>
+                <p:outputLabel value="Unidade:  "/>
+                <p:inputText value="#{novoUsuario.usuario.unidade}" required="true" 
+                             requiredMessage="Unidade obrigatória" 
+                             maxlength="30" />
+                <p/>
+                <p:commandButton value="Salvar" action="#{novoUsuario.inserirUsuario()}" 
+                                 update="@form" />
+                <p/>
+                <p:messages />
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
